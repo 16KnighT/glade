@@ -31,7 +31,8 @@ function _init()
  	sp = 1,
  	xf = false
  	}
-	isoobj(5,5,5,5,5)
+	isoobj(5,5,40,22,50)
+	isoobj(0,25,120,120,5)
 end
 
 function _update()
@@ -59,7 +60,15 @@ function drawisoobjs()
 		relativey = o.y-player.y+64
 		print(relativex)
 		print(relativey)
-		line(relativex,relativey,relativex,relativey-o.h)
+		line(relativex,relativey,relativex,relativey-o.h) //middle verticle line |
+		line(relativex,relativey,relativex+(o.l * cos(0.875)),relativey-(o.l *sin(0.875)))//right bottom line /
+		line(relativex,relativey,relativex-(o.w * cos(0.875)),relativey-(o.w *sin(0.875)))//left bottom line \
+		line(relativex+(o.l * cos(0.875)),relativey-(o.l *sin(0.875)), relativex+(o.l * cos(0.875)), relativey-(o.l *sin(0.875))-o.h)//right verticle line |
+		line(relativex-(o.w * cos(0.875)),relativey-(o.w *sin(0.875)), relativex-(o.w * cos(0.875)), relativey-(o.w *sin(0.875))-o.h)//left verticle line |
+		line(relativex+(o.l * cos(0.875)), relativey-(o.l *sin(0.875))-o.h, relativex, relativey-o.h)
+		line(relativex-(o.w * cos(0.875)), relativey-(o.w *sin(0.875))-o.h,relativex, relativey-o.h)
+		line(relativex+(o.l * cos(0.875)), relativey-(o.l *sin(0.875))-o.h, relativex+(o.l * cos(0.875))-(o.w * cos(0.875)),relativey-(o.l *sin(0.875))-o.h-(o.w *sin(0.875)))
+		line(relativex-(o.w * cos(0.875)),relativey-(o.w *sin(0.875))-o.h, relativex+(o.l * cos(0.875))-(o.w * cos(0.875)),relativey-(o.l *sin(0.875))-o.h-(o.w *sin(0.875)))
 	end	
 end
 
